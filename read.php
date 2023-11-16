@@ -1,33 +1,31 @@
 <?php
-// Pobierz identyfikator artykułu z parametru URL
-$articleId = isset($_GET['id']) ? $_GET['id'] : null;
+include_once('Post.php');
+include_once('script.php');
+// Pobierz id_post z parametru URL
+$id_post = isset($_GET['id']) ? $_GET['id'] : null;
 
-// Pobierz pełne informacje o artykule z bazy danych na podstawie $articleId
-// (Tu musisz dostosować kod do swojej struktury bazy danych)
+// Utwórz instancję klasy Post
+$post = new Post();
 
-// Przykładowe dane artykułu
-$articleData = array(
-    'title' => "Tytuł artykułu o identyfikatorze $articleId",
-    'date' => "January 1, 2020",
-    'image' => "http://placehold.it/800x400", // URL do zdjęcia
-    'text' => "To jest pełen tekst artykułu o identyfikatorze $articleId."
-);
+// Pobierz pełny artykuł na podstawie id_post
+$articleData = $post->getFullPost($id_post);
+
+// Wyświetl pełny artykuł
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Czytaj artykuł</title>
-    <link rel="stylesheet" type="text/css" href="style">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<script src="jquery-3.6.1.min.js"></script>
+	<script src="jquery.js"></script>
 </head>
 <body>
-
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top gradient-custom one-edge-shadow">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top gradient-custom one-edge-shadow">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Blog</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -39,14 +37,14 @@ $articleData = array(
                             <a class="nav-link active" style="width:120px;" href="index.php">Strona główna</a>
                         </li>
                         <?php
-                        if(isset($_SESSION['User']))
+                        if(isset($_SESSION['user']))
                             {   
                         ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="create.php">Utówrz post</a>
+                            <a class="nav-link" style="width:120px;" href="create_post.php">Utówrz post</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="edit.php">Edytuj post</a>
+                            <a class="nav-link" style="width:120px;" href="edit.php">Edytuj post</a>
                         </li>
                         <?php 
                             } 
@@ -54,15 +52,15 @@ $articleData = array(
                     </ul>
                 </div>
                 <?php
-                if(isset($_SESSION['User']))
+                if(isset($_SESSION['user']))
                 {
                 ?>
                 <div class="navbar-collapse collapse w-100 order-3 dual-collapse2" id="collapsibleNavbar">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Witaj <?php echo $_SESSION['User']; ?> ! </a>
+                        <li class="nav-item">
+                            <a class="nav-link active" style="width:120px;" href="#">Witaj <?php echo $_SESSION['user']; ?> ! </a>
                         </li>
-                        <li class="nav-item"><?php echo '<a href="script.php?logout" class="nav-link" style="color:red; font-weight: 600;">Wyloguj</a>';?></li>
+                        <li class="nav-item" style="width:80px;"><?php echo '<a href="script.php?logout" class="nav-link" style="color:red; font-weight: 600;">Wyloguj</a>';?></li>
                     </ul>
                 </div>
                 <?php
@@ -83,15 +81,20 @@ $articleData = array(
     <section class="py-5 " style="min-height: calc(100vh - 72px);">
         <div class="container">
             <h1 class="my-4"><?php echo $articleData['title']; ?></h1>
-
             <!-- Zdjęcie artykułu -->
-            <img class="img-fluid rounded mb-3" src="<?php echo $articleData['image']; ?>" alt="">
-
+            <?php
+                if (!empty($articleData['images'])) {
+                // Wyświetl obrazek, jeśli istnieje
+                ?>
+                    <img class="img-fluid rounded mb-3 mb-md-0 read-image" src="data:image/jpeg;base64,<?php echo $articleData['images']; ?>" alt="<?php echo $articleData['title']; ?>">
+                <?php
+                }
+            ?>
             <!-- Informacje o artykule -->
-            <p class="blog-post-meta"><?php echo $articleData['date']; ?> by <a href="#">Author</a></p>
+            <p class="blog-post-meta"><?php echo $articleData['date']; ?></p>
 
             <!-- Pełny tekst artykułu -->
-            <p><?php echo $articleData['text']; ?></p>
+            <p><?php echo $articleData['content']; ?></p>
         </div>
     </section>
 

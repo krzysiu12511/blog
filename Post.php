@@ -43,7 +43,7 @@ class Post
     // Zamknij połączenie z bazą danych
     $stmt->close();
     $this->db->closeConnection();
-}
+    }
 
     public function getPosts($startIndex, $postsPerPage)
     {
@@ -63,6 +63,27 @@ class Post
         }
 
         return $posts;
+    }
+
+    public function getFullPost($id_post)
+    {
+        // Połącz z bazą danych
+        $conn = $this->db->getConnection();
+
+        // Pobierz pełne dane postu na podstawie id_post
+        $query = "SELECT p.*, pi.images FROM post p LEFT JOIN post_image pi ON p.id_post = pi.id_post WHERE p.id_post = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("i", $id_post);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($row = $result->fetch_assoc()) {
+            // Zwróć pełne dane postu
+            return $row;
+        } else {
+            // Jeśli nie znaleziono postu, zwróć pusty wynik lub obsłuż błąd w inny sposób
+            return array();
+        }
     }
 
     

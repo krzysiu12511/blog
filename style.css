@@ -28,6 +28,17 @@ body {
     transform: scale(1.1); /* Powiększ obrazek po najechaniu myszką */
 }
 
+.read-image {
+    height: 480px;
+    object-fit: cover; /* Zachowuje proporcje obrazu i dopasowuje go do wymiarów */
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #dddddd21; /* Dodaj obramowanie */
+    border-radius: 8px; /* Dodaj zaokrąglenia */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Dodaj cień */
+    transition: transform 0.3s ease-in-out; /* Dodaj efekt przejścia */
+}
+
 .blog-post {
     margin-bottom: 20px;
 }

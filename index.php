@@ -94,6 +94,11 @@
                 $posts = $post->getPosts($startIndex, $postsPerPage);
                 
                 foreach ($posts as $i => $post) {
+                    $maxLength = 200; // Maksymalna długość tekstu
+                    $content = $post['content']; // Tekst do obcięcia
+                    if (strlen($content) > $maxLength) {
+                        $content = substr($content, 0, $maxLength) . '...';
+                    }
                     // Otwórz nowy wiersz co 4 posty
                     if ($i % 4 == 0) {
                         echo '<div class="row">';
@@ -108,10 +113,10 @@
                             <?php
                         }
                         ?>
-                        <div class="blog-post-title"><?php echo $post['title']; ?></div>
+                        <div class="blog-post-title"><?php echo $post['title'];  ?></div>
                         <div class="blog-post-meta"><?php echo $post['date']; ?></div>
-                        <p><?php echo $post['content']; ?></p>
-                        <a class="btn btn-info" href="#">Czytaj artykuł</a>
+                        <p><?php echo $content ;?></p>
+                        <a class="btn btn-info" href="read.php?id=<?php echo $post['id_post'];?> ">Cały artykuł</a>
                     </div>
                     <?php
                     // Zamknij wiersz co 4 posty

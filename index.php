@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sportowy blog</title>
+    <title>Mój blog</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -33,7 +33,7 @@
                             <a class="nav-link" style="width:120px;" href="create_post.php">Utówrz post</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" style="width:120px;" href="edit.php">Edytuj post</a>
+                            <a class="nav-link" style="width:120px;" href="edit_post.php">Edytuj post</a>
                         </li>
                         <?php 
                             } 
@@ -72,12 +72,13 @@
             <div class="row">
                 <!-- Blog Entries -->
                 <div class="col-md-12">
-                    <h1 class="my-4">Sportowy Blog
+                    <h1 class="my-4">Podróże z Gugusiem
                         <!-- <small>Secondary Text</small> -->
                     </h1>
                      <!-- Blog Posts Loop -->
                 <?php
-                $numberOfPosts = 15; // Pobierz ilość postów z bazy danych
+                $post = new Post();
+                $numberOfPosts = $post->getNumberOfPosts(); // Pobierz ilość postów z bazy danych
                 $postsPerPage = 8; // Ilość postów na jednej stronie
                 $numberOfPages = ceil($numberOfPosts / $postsPerPage); // Oblicz liczbę stron
                 
@@ -88,7 +89,7 @@
                 $startIndex = ($currentPage - 1) * $postsPerPage;
                 
                 // Utwórz instancję klasy Post
-                $post = new Post();
+                
                 
                 // Pobierz posty z bazy danych
                 $posts = $post->getPosts($startIndex, $postsPerPage);

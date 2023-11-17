@@ -39,7 +39,6 @@ if ($kategoria == "Zaloguj") {
 
 if ($kategoria == "Dodajpost") {
     include_once 'Post.php'; // Załóżmy, że masz taki plik zdefiniowany
-    echo "jestem.";
     // Pobierz dane z formularza
     $title = $_POST['title'];
     $content = $_POST['content'];
@@ -51,9 +50,32 @@ if ($kategoria == "Dodajpost") {
     // Dodaj nowy post do bazy danych
     $post->addPost($title, $content, $images);
 
-    // Wyświetl komunikat sukcesu
-    echo "Post został dodany do bazy pomyślnie.";
     header("location:create_post.php");
+}
+
+if (isset($_POST['kategoria']) && $_POST['kategoria'] == 'Edytujpost') {
+    include_once 'Post.php';
+
+    $id_post = isset($_POST['id_post']) ? $_POST['id_post'] : null;
+    $title = isset($_POST['title']) ? $_POST['title'] : null;
+    $content = isset($_POST['content']) ? $_POST['content'] : null;
+    $images = isset($_FILES['images']) ? $_FILES['images'] : null;
+
+    $post = new Post();
+    // Edytuj post w bazie danych
+    $post->editPost($id_post, $title, $content, $images);
+    // Utwórz instancję klasy Post
+
+
+    header("location:edit_post.php"); // Przekieruj z powrotem do edycji
+}
+
+if($kategoria == "Usunpost"){
+    include_once 'Post.php';
+    $postId = $_POST['id'];
+    $post = new Post();
+    $result = $post->deletePost($postId);
+    echo 1;
 }
 
 

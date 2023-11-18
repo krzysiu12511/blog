@@ -74,7 +74,7 @@
         <div class="container blog-container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="my-4 blog-heading">Blok o podróżach</h1>
+                    <h1 class="my-4 blog-heading">Blog o podróżach</h1>
                 <?php
                 $post = new Post();
                 $numberOfPosts = $post->getNumberOfPosts(); // Pobierz ilość postów z bazy danych

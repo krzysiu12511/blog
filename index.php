@@ -1,16 +1,21 @@
 <?php include_once('script.php');include_once('Post.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mój blog</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-	<script src="jquery-3.6.1.min.js"></script>
-	<script src="jquery.js"></script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mój blog</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://momentjs.com/downloads/moment.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+		<script src="jquery-3.6.1.min.js"></script>
+    </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top gradient-custom one-edge-shadow">
             <div class="container-fluid">
@@ -65,11 +70,11 @@
             </div>
     </nav>
 
-    <section class="py-2" style="min-height: calc(100vh - 72px);">
-        <div class="container">
+    <section class="blog-section">
+        <div class="container blog-container">
             <div class="row">
                 <div class="col-md-12">
-                    <h1 class="my-4">Blok o podróżach</h1>
+                    <h1 class="my-4 blog-heading">Blok o podróżach</h1>
                 <?php
                 $post = new Post();
                 $numberOfPosts = $post->getNumberOfPosts(); // Pobierz ilość postów z bazy danych
@@ -82,7 +87,7 @@
                 // Pobierz posty z bazy danych
                 $posts = $post->getPosts($startIndex, $postsPerPage);
                 foreach ($posts as $i => $post) {
-                    $maxLength = 200; // Maksymalna długość tekstu
+                    $maxLength = 110; // Maksymalna długość tekstu
                     $content = $post['content']; // Tekst do obcięcia
                     if (strlen($content) > $maxLength) {
                         $content = substr($content, 0, $maxLength) . '...';
@@ -100,7 +105,7 @@
                         <?php } ?>
                         <div class="blog-post-title"><?php echo $post['title'];  ?></div>
                         <div class="blog-post-meta"><?php echo $post['date']; ?></div>
-                        <p><?php echo $content ;?></p>
+                        <p class="blog-post-content"><?php echo $content ;?></p>
                         <a class="btn btn-info" href="read.php?id=<?php echo $post['id_post'];?> ">Cały artykuł</a>
                     </div>
                     <?php

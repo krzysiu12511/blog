@@ -6,14 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sportowy blog</title>
     
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-	<script src="jquery-3.6.1.min.js"></script>
-    <script src="script.js?ver=0.2"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://momentjs.com/downloads/moment.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+		<script src="jquery-3.6.1.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top gradient-custom one-edge-shadow">
@@ -69,10 +71,10 @@
             </div>
     </nav>
 
-    <section class="py-5" style="min-height: calc(100vh - 122px);">
-        <div class="container">
-            <h2>Lista Wszystkich Postów</h2>
-            <table class="table">
+    <section class="all-posts-section">
+        <div class="container all-posts-container">
+            <h2 class="all-posts-heading">Lista Wszystkich Postów</h2>
+            <table class="table all-posts-table">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -109,7 +111,7 @@
                     ?>
                 </tbody>
             </table>
-                <ul class="pagination justify-content-center">
+                <ul class="pagination all-posts-pagination">
                     <?php
                         for ($page = 1; $page <= $numberOfPages; $page++) {
                         echo '<li class="page-item ' . ($page == $currentPage ? 'active' : '') . '"><a class="page-link" href="?page=' . $page . '">' . $page . '</a></li>';

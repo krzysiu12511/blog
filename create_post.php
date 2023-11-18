@@ -5,21 +5,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Dodaj post</title>
-        
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
-        
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-        <script src="jquery-3.6.1.min.js"></script>
-        <script src="script.js?ver=0.4"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://momentjs.com/downloads/moment.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+		<script src="jquery-3.6.1.min.js"></script>
     </head>
     <body>
 
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top gradient-custom one-edge-shadow">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top one-edge-shadow">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Blog</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -72,20 +72,20 @@
             </div>
         </nav>
 
-        <section class="py-5 " style="min-height: calc(100vh - 122px);">
-            <div class="container mt-5">
-                <h2 class="mb-4">Dodaj nowy post</h2>
+        <section class="add-post-section">
+            <div class="container add-post-container">
+                <h2 class="add-post-heading">Dodaj nowy post</h2>
                 <form action="script.php" method="post" id="yourFormId" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label for="title">Tytuł:</label>
-                        <input type="text" class="form-control" id="title" name="title" required>
+                    <div class="form-group add-post-form-group">
+                        <label for="title" class="add-post-label">Tytuł:</label>
+                        <input type="text" class="form-control add-post-input" id="title" name="title" required>
                     </div>
-                    <div class="form-group">
-                        <label for="content">Treść artykułu:</label>
-                        <textarea class="form-control" id="content" name="content" rows="6" required></textarea>
+                    <div class="form-group add-post-form-group">
+                        <label for="content" class="add-post-label">Treść artykułu:</label>
+                        <textarea class="form-control add-post-input" id="content" name="content" rows="6" required></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="images">Zdjęcia:</label>
+                    <div class="form-group add-post-form-group">
+                        <label for="images" class="add-post-label">Zdjęcia:</label>
                         <input type="file" class="form-control-file" id="images" name="images[]" accept="image/*" multiple required>
                     </div>
                     <button type="submit" id="addPostButton" name='kategoria' value='Dodajpost' class="btn btn-primary">Dodaj post</button>

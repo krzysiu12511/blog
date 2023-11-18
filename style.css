@@ -1,16 +1,66 @@
-/* style.css */
+/*Login Form */
 
-
-@media (max-width: 600px) {
-    .grid-container {
-        grid-template-columns: 1fr;
-    }
+.login-container {
+    max-width: 300px;
+    margin: 20px auto;
+    padding-top: 10px;
 }
 
-body {
-    padding-top: 50px;
+.login-card {
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Unique Form Outline Styling */
+.login-form-outline {
+    margin-bottom: 20px;
+}
+
+/* Unique Input Field Styling */
+.login-input {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+}
+
+/* Unique Button Styling */
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    margin-bottom: 20px;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
+}
+
+/* Blog Section */
+.blog-section {
+    padding-top: 70px;
+    min-height: calc(100vh - 72px);
+    background-color: #f8f9fa;
+}
+
+.blog-container {
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.blog-heading {
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.blog-post {
+    margin-bottom: 15px;
+}
 
 .post-image {
     width: 320px;
@@ -19,14 +69,272 @@ body {
     border-radius: 10px;
     margin-bottom: 15px;
     border: 2px solid #dddddd21;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-    transition: transform 0.3s ease-in-out; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
 }
 
 .post-image:hover {
-    transform: scale(1.1); 
+    transform: scale(1.1);
 }
+
+.blog-post-title {
+    color: #007bff;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1.3rem;
+}
+
+.blog-post-meta {
+    font-size: 0.7rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+.blog-post-content{
+    font-size: 0.85rem;
+
+}
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.pagination .page-item {
+    margin: 0 5px;
+}
+
+.pagination .page-link {
+    color: #007bff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.pagination .active .page-link {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Read Section Styling */
+.read-section {
+    min-height: calc(100vh - 122px);
+    padding-top: 70px;
+    background-color: #f8f9fa; /* Light background for the section */
+}
+
+.read-container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff; /* White background for content */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.read-heading {
+    color: #333; /* Dark color for the title */
+    margin-bottom: 20px; /* Spacing below the heading */
+    text-align: center; /* Center the heading */
+}
+
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Space below the carousel */
+}
+
+.read-carousel {
+    max-width: 800px;
+    border-radius: 8px; /* Rounded corners for carousel */
+    overflow: hidden; /* Ensures images fit within the carousel */
+}
+
+.read-image {
+    width: 100%;
+    height: 400px;
+    object-fit: contain; /* Ensures full image is visible */
+    outline: none;
+}
+
+.read-meta {
+    color: #666; /* Gray color for metadata like date */
+    margin-bottom: 10px; /* Spacing below the metadata */
+    text-align: center; /* Center the metadata */
+}
+
+.read-content {
+    color: #333; /* Dark color for readability */
+    line-height: 1.6; /* Line height for better readability */
+    text-align: justify; /* Justified text for a clean look */
+}
+
+
+/* Add Post Section */
+.add-post-section {
+    padding-top: 70px;
+    min-height: calc(100vh - 72px);
+    background-color: #f8f9fa;
+}
+
+.add-post-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-post-heading {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.add-post-form-group {
+    margin-bottom: 20px;
+}
+
+.add-post-label {
+    font-weight: bold;
+    display: block;
+}
+
+.add-post-input, .add-post-textarea, .add-post-file {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+}
+
+.add-post-textarea {
+    height: auto;
+    resize: vertical;
+}
+
+.add-post-button {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 15px;
+    width: 100%;
+}
+
+.add-post-button:hover {
+    background-color: #0069d9;
+}
+
+/*All Posts List Section */
+.all-posts-section {
+    padding-top: 70px;
+    min-height: calc(100vh - 72px);
+    background-color: #f8f9fa;
+}
+
+.all-posts-container {
+    padding: 40px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.all-posts-heading {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.all-posts-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.all-posts-table th, .all-posts-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.all-posts-table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.all-posts-pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+.all-posts-pagination li {
+    margin: 0 5px;
+}
+
+.all-posts-pagination .page-link {
+    color: #007bff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.all-posts-pagination .active .page-link {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Edit Post Section */
+.edit-post-body {
+    background-color: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+}
+
+.edit-post-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.edit-post-heading {
+    color: #333;
+}
+
+.edit-post-label {
+    font-weight: bold;
+}
+
+.edit-post-input, .edit-post-file {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+.edit-post-button {
+    background-color: #007bff;
+    border: none;
+    padding: 10px 15px;
+    width: 100%;
+}
+
+.edit-post-button:hover {
+    background-color: #0069d9;
+}
+
+.edit-post-carousel {
+    text-align: center;
+}
+
+.edit-post-image {
+    max-height: 400px;
+    object-fit: contain;
+}
+
+
 
 .carousel-inner {
     border-radius: 10px;
@@ -36,30 +344,6 @@ body {
 .read-image {
     border-radius: 10px;
     margin-bottom: 10px;
-}
-
-.blog-post-meta {
-    font-style: italic;
-    color: #555;
-    margin-bottom: 10px;
-}
-
-h1 .read {
-    color: #333;
-}
-
-.read{
-    color: #666;
-    line-height: 1.6;
-    text-align: justify;
-}
-.read-content{
-    line-height: 1.5;
-    text-align: justify;
-}
-
-.blog-post {
-    margin-bottom: 20px;
 }
 
 #carouselExample {
@@ -78,23 +362,8 @@ h1 .read {
 }
 
 
-
-.blog-post-title {
-    margin-bottom: 5px;
-    font-size: 2rem;
-}
-
-.blog-post-meta {
-    margin-bottom: 10px;
-    color: #999;
-}
-
 .nav-item {
-    width:120px;
-}
-
-.pagination {
-    justify-content: center;
+    width: 120px;
 }
 
 .page-item.active .page-link {
@@ -112,9 +381,80 @@ h1 .read {
     color: #0056b3;
 }
 
-
 footer {
     padding: 20px 0;
     background-color: #f9f9f9;
     text-align: center;
+    margin-top:10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .login-container {
+        max-width: 90%;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .travel-blog-container {
+        padding: 10px;
+        margin: 10px auto;
+        max-width: 90%;
+    }
+
+    .blog-post {
+        margin-bottom: 30px;
+    }
+
+    .add-post-container {
+        margin: 20px auto;
+        max-width: 90%;
+    }
+
+    .all-posts-container {
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 90%;
+    }
+
+    .edit-post-container {
+        margin: 20px auto;
+        max-width: 90%;
+    }
+
+    .read-container {
+        margin: 10px auto;
+        max-width: 90%;
+    }
+
+    .read-heading {
+        font-size: 1.5rem; /* Slightly smaller font size for mobile */
+    }
+
+    .read-carousel, .read-image {
+        height: auto; /* Adjust height for mobile devices */
+    }
+
+    #sticky-footer {
+        padding: 15px 0; /* Slightly smaller padding on smaller screens */
+    }
+
+    #sticky-footer .container {
+        padding: 0 15px; /* Padding to prevent text from touching the screen edges */
+    }
+
+    .navbar-nav .nav-item {
+        margin-bottom: 10px; /* Spacing between items on smaller screens */
+    }
+
+    .navbar-nav .nav-link {
+        text-align: center; /* Center align links for better readability on mobile */
+    }
 }

@@ -13,23 +13,23 @@ $articleData = $post->getFullPost($id_post);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Post</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
-
-<div class="container mt-5">
-    <h2 class="mb-4">Edit Post</h2>
+<body class="edit-post-body">
+<div class="container edit-post-container">
+    <h2 class="mb-4 edit-post-heading">Edit Post</h2>
     <form action="script.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id_post" value="<?php echo $id_post; ?>">
         <div class="mb-3">
-            <label for="title" class="form-label">Title:</label>
-            <input type="text" name="title" class="form-control" value="<?php echo $articleData['p_title']; ?>" required>
+            <label for="title" class="form-label edit-post-label">Title:</label>
+            <input type="text" name="title" class="form-control edit-post-input" value="<?php echo $articleData['p_title']; ?>" required>
         </div>
         <div class="mb-3">
-            <label for="content" class="form-label">Content:</label>
-            <textarea name="content" class="form-control" required><?php echo $articleData['p_content']; ?></textarea>
+            <label for="content" class="form-label edit-post-label">Content:</label>
+            <textarea name="content" class="form-control edit-post-input" required><?php echo $articleData['p_content']; ?></textarea>
         </div>
         <div class="mb-3">
-        <div class="container d-flex justify-content-center align-items-center">
+            <div class="container d-flex justify-content-center align-items-center">
                     <?php if (!empty($articleData['images'])): ?>
                         <div id="carouselExample" class="carousel slide" data-ride="carousel" style="max-width: 800px;" data-interval="10000">
                             <div class="carousel-inner">
@@ -41,9 +41,9 @@ $articleData = $post->getFullPost($id_post);
                             </div>
                         </div>
                     <?php endif; ?>
-                </div>
-                <label for="images">Zdjęcia:</label>
-                <input type="file" class="form-control-file" id="images" name="images[]" accept="image/*" multiple required>
+            </div>
+            <label for="images" class="edit-post-label">Zdjęcia:</label>
+            <input type="file" class="form-control-file" id="images" name="images[]" accept="image/*" multiple required>
         </div>
         <button type="submit" id="addPostButton" name='kategoria' value='Edytujpost' class="btn btn-primary">Zapisz zmiany</button>
     </form>

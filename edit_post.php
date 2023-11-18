@@ -7,18 +7,15 @@
     <title>Sportowy blog</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 	<script src="jquery-3.6.1.min.js"></script>
     <script src="script.js?ver=0.2"></script>
-
-
-
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top gradient-custom one-edge-shadow">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">Blog</a>
@@ -104,7 +101,6 @@
                             <td><?php echo $post['date']; ?></td>
                             <td>
                                 <a class="btn btn-info btn-sm" href="edit.php?id=<?php echo $post['id_post'];?> ">Edytuj</a>
-                                <!-- W miejscu, gdzie chcesz umieścić przycisk do usuwania postu -->
                                 <button type="submit" class="hide btn btn-danger btn-sm" name='kategoria' id="<?php echo $post['id_post']; ?>">Usun</button>
                             </td>
                         </tr>
@@ -123,9 +119,6 @@
         </div>
     </section>
 
-    <!-- Page Content -->
-    
-    <!-- Footer -->
     <footer id="sticky-footer" class="flex-shrink-0 py-4 bg-dark text-white-50">
             <div class="container text-center">
                 <small>Copyright &copy; Your Website</small>

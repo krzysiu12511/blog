@@ -1,13 +1,9 @@
 <?php
 include_once('Post.php');
 include_once('script.php');
-// Pobierz id_post z parametru URL
 $id_post = isset($_GET['id']) ? $_GET['id'] : null;
-// Utwórz instancję klasy Post
 $post = new Post();
-// Pobierz pełny artykuł na podstawie id_post
 $articleData = $post->getFullPost($id_post);
-// Wyświetl pełny artykuł
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,14 +11,14 @@ $articleData = $post->getFullPost($id_post);
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Czytaj artykuł</title>
+
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="style.css">
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-        
-        <!-- Bootstrap JS i jQuery (upewnij się, że jQuery jest wcześniej załadowane) -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="style.css">
         <script src="jquery-3.6.1.min.js"></script>
     </head>
     <body>
@@ -82,8 +78,6 @@ $articleData = $post->getFullPost($id_post);
         <section class="py-3" style="min-height: calc(100vh - 72px);">
             <div class="container">
                 <h1 class="read my-4"><?php echo $articleData['p_title']; ?></h1>
-
-                <!-- Wyświetl wszystkie obrazy przypisane do postu -->
                 <div class="container d-flex justify-content-center align-items-center">
                     <?php if (!empty($articleData['images'])): ?>
                         <div id="carouselExample" class="carousel slide" data-ride="carousel" style="max-width: 800px;" data-interval="10000">
@@ -97,11 +91,7 @@ $articleData = $post->getFullPost($id_post);
                         </div>
                     <?php endif; ?>
                 </div>
-
-                <!-- Informacje o artykule -->
                 <p class="read blog-post-meta"><?php echo $articleData['p_date']; ?></p>
-
-                <!-- Pełny tekst artykułu -->
                 <p class="read-content"><?php echo nl2br($articleData['p_content']); ?></p>
 
             </div>
@@ -113,7 +103,6 @@ $articleData = $post->getFullPost($id_post);
                 </div>
         </footer>
 
-        <!-- Bootstrap core JavaScript -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     </body>

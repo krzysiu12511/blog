@@ -1,7 +1,5 @@
 # Portal do dodawania postów
 
-Projekt ten został stworzony w ramach zadania rekrutycajnego 
-
 ## Funkcjonalności dla konta Administratora:
 
 1. Tworzenie postów.

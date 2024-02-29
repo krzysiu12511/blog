@@ -17,8 +17,12 @@ if ($kategoria == "Zaloguj") {
         $db = new Database();
         $conn = $db->getConnection();
 
-        $query = "SELECT id_user FROM user WHERE login = '$login' AND password = '$password'";
-        $result = $conn->query($query);
+        $stmt = $conn->prepare("SELECT id_user FROM user WHERE login = ? AND password = ?");
+        
+        $stmt->bind_param("ss", $login, $password);
+
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         if ($result->num_rows > 0) {
             $_SESSION['user'] = $login;

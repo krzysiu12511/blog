@@ -14,6 +14,7 @@ $articleData = $post->getFullPost($id_post);
     <title>Edit Post</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="edit-post-body">
 <div class="container edit-post-container">

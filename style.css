@@ -122,54 +122,122 @@
 .read-section {
     min-height: calc(100vh - 122px);
     padding-top: 70px;
-    background-color: #f8f9fa; /* Light background for the section */
+    background-color: #f8f9fa;
 }
 
 .read-container {
     max-width: 800px;
     margin: auto;
-    background: #fff; /* White background for content */
+    background: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .read-heading {
-    color: #333; /* Dark color for the title */
-    margin-bottom: 20px; /* Spacing below the heading */
-    text-align: center; /* Center the heading */
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .carousel-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px; /* Space below the carousel */
+    margin-bottom: 20px;
 }
 
 .read-carousel {
     max-width: 800px;
-    border-radius: 8px; /* Rounded corners for carousel */
-    overflow: hidden; /* Ensures images fit within the carousel */
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .read-image {
     width: 100%;
     height: 400px;
-    object-fit: contain; /* Ensures full image is visible */
+    object-fit: contain;
     outline: none;
 }
 
 .read-meta {
-    color: #666; /* Gray color for metadata like date */
-    margin-bottom: 10px; /* Spacing below the metadata */
-    text-align: center; /* Center the metadata */
+    color: #666;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .read-content {
-    color: #333; /* Dark color for readability */
-    line-height: 1.6; /* Line height for better readability */
-    text-align: justify; /* Justified text for a clean look */
+    color: #333;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+
+/* Comment Form Styling */
+.comment-form {
+    padding: 10px;
+    margin-bottom: 20px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 4px;
+    margin-bottom: 10px;
+    height: 100px;
+    flex-grow: 1;
+    margin-right: 20px;
+}
+
+.comment-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap
+}
+
+.comment-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Comments Section Styling */
+.comments-container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    margin-top:10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.comment-heading {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 18px;
+    text-align: left;
+}
+
+.comment-content {
+    color: #333;
+    line-height: 1.5;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+.comment-meta {
+    color: #666;
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 10px;
 }
 
 
@@ -434,27 +502,32 @@ footer {
         max-width: 90%;
     }
 
+    .comments-container {
+        margin: 10px auto;
+        max-width: 90%;
+    }
+
     .read-heading {
-        font-size: 1.5rem; /* Slightly smaller font size for mobile */
+        font-size: 1.5rem;
     }
 
     .read-carousel, .read-image {
-        height: auto; /* Adjust height for mobile devices */
+        height: auto;
     }
 
     #sticky-footer {
-        padding: 15px 0; /* Slightly smaller padding on smaller screens */
+        padding: 15px 0;
     }
 
     #sticky-footer .container {
-        padding: 0 15px; /* Padding to prevent text from touching the screen edges */
+        padding: 0 15px;
     }
 
     .navbar-nav .nav-item {
-        margin-bottom: 10px; /* Spacing between items on smaller screens */
+        margin-bottom: 10px;
     }
 
     .navbar-nav .nav-link {
-        text-align: center; /* Center align links for better readability on mobile */
+        text-align: center;
     }
 }

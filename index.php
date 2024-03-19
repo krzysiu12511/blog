@@ -29,9 +29,7 @@
                             <a class="nav-link active" style="width:120px;" href="index.php">Strona główna</a>
                         </li>
                         <?php
-                        if(isset($_SESSION['user']))
-                            {   
-                        ?>
+                        if(isset($_SESSION['user']) && $_SESSION['user'] === "admin") { ?>
                         <li class="nav-item">
                             <a class="nav-link" style="width:120px;" href="create_post.php">Utówrz post</a>
                         </li>

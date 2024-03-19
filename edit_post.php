@@ -16,6 +16,8 @@
         <script src="https://momentjs.com/downloads/moment.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 		<script src="jquery-3.6.1.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top gradient-custom one-edge-shadow">
@@ -126,6 +128,8 @@
                 <small>Copyright &copy; Your Website</small>
             </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
 

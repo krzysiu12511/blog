@@ -11,27 +11,27 @@ if(isset($_GET["kategoria"])){
 	$kategoria = $_GET["kategoria"];}
 
 if ($kategoria == "Zaloguj") {
-        $login = $_POST['Login'];
-        $password = $_POST['Paswd'];
+    $login = $_POST['Login'];
+    $password = $_POST['Paswd'];
 
-        $db = new Database();
-        $conn = $db->getConnection();
+    $db = new Database();
+    $conn = $db->getConnection();
 
-        $stmt = $conn->prepare("SELECT id_user FROM user WHERE login = ? AND password = ?");
-        
-        $stmt->bind_param("ss", $login, $password);
+    $stmt = $conn->prepare("SELECT id_user FROM user WHERE login = ? AND password = ?");
+    
+    $stmt->bind_param("ss", $login, $password);
 
-        $stmt->execute();
-        $result = $stmt->get_result();
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-        if ($result->num_rows > 0) {
-            $_SESSION['user'] = $login;
-            header("Location: index.php"); 
-        } else {
-            header("Location: login.php");
-            echo "Błędny login lub hasło.";
-        }
-        $db->closeConnection();
+    if ($result->num_rows > 0) {
+        $_SESSION['user'] = $login;
+        header("Location: index.php"); 
+    } else {
+        header("Location: login.php");
+        echo "Błędny login lub hasło.";
+    }
+    $db->closeConnection();
     
 }
 
@@ -71,6 +71,19 @@ if($kategoria == "Usunpost"){
     echo 1;
 }
 
+if ($kategoria == "DodajKomentarz" ) {
+    $post_id = $_POST['id_post'];
+    $user_name = $_SESSION['user'];
+    $comment = $_POST['comment'];
+    echo $comment;
+    $db = new Database();
+    $conn = $db->getConnection();
+    $stmt = $conn->prepare("INSERT INTO comment (id_post, user_name, content) VALUES (?, ?, ?)");
+    $stmt->bind_param("iss", $post_id, $user_name, $comment);
+    $stmt->execute();
+    $db->closeConnection();
+    header("Location: read.php?id=".$post_id);
+}
 
 if(isset($_GET['logout'])){
     session_destroy();

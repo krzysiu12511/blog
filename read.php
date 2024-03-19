@@ -1,6 +1,7 @@
 <?php
 include_once('Post.php');
 include_once('script.php');
+include_once 'Database.php';
 $id_post = isset($_GET['id']) ? $_GET['id'] : null;
 $post = new Post();
 $articleData = $post->getFullPost($id_post);
@@ -36,9 +37,7 @@ $articleData = $post->getFullPost($id_post);
                                 <a class="nav-link active" style="width:120px;" href="index.php">Strona główna</a>
                             </li>
                             <?php
-                            if(isset($_SESSION['user']))
-                                {   
-                            ?>
+                            if(isset($_SESSION['user']) && $_SESSION['user'] === "admin") { ?>
                             <li class="nav-item">
                                 <a class="nav-link" style="width:120px;" href="create_post.php">Utówrz post</a>
                             </li>
@@ -95,7 +94,31 @@ $articleData = $post->getFullPost($id_post);
                 </div>
                 <p class="read-meta"><?php echo $articleData['p_date']; ?></p>
                 <p class="read-content"><?php echo nl2br($articleData['p_content']); ?></p>
-
+            </div>
+            <div class="container comments-container">
+                <?php if (isset($_SESSION['user'])): ?>
+                    <form action="script.php" method="post" class="comment-form">
+                        <input type="hidden" name="kategoria" value="DodajKomentarz">
+                        <input type="hidden" name="id_post" value="<?php echo $id_post; ?>">
+                        <textarea name="comment" required class="form-control"></textarea>
+                        <button type="submit" class="btn btn-primary">Dodaj komentarz</button>
+                    </form>
+                <?php endif;
+                $db = new Database();
+                $conn = $db->getConnection();
+                $stmt = $conn->prepare("SELECT user_name, content, date FROM comment WHERE id_post = ? ORDER BY date DESC");
+                $stmt->bind_param("i", $id_post);
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $db->closeConnection();
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<div class='comment-content'><p class='comment-meta'>Posted by: ".htmlspecialchars($row['user_name'])." at ".htmlspecialchars($row['date'])."</p><p>".htmlspecialchars($row['content'])."</p></div>";
+                    }
+                } else {
+                    echo "<p>No comments yet. Be the first to comment!</p>";
+                }
+                ?>
             </div>
         </section>
 
